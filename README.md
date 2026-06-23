@@ -19,7 +19,7 @@ It is designed as a modular and extensible solution for building custom title ba
 
 Example of how the custom window behaves on Windows 11, including native-like window movement, resizing, and system menu integration.
 
-<img width="800" height="449" alt="ezgif-17418d93a23a6e5e" src="https://github.com/user-attachments/assets/e8a0a2e3-cc11-41be-9f94-f8b94a0295e1" />
+<img width="800" height="449" alt="ezgif-17418d93a23a6e5e" src="https://github.com/user-attachments/assets/06abeae9-cc5e-4ab1-a10f-f7ca68c3c153" />
 
 ## Features
 
