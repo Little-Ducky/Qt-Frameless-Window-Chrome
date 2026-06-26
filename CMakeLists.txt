@@ -33,8 +33,8 @@ elseif(APPLE)
         platform/ui/appmainwindow/macplatform/MacPlatform.h
         platform/ui/appmainwindow/macplatform/MacPlatform.mm
 
-        platform/ui/appmainwindow/macplatform/utils/MacPlatform.h
-        platform/ui/appmainwindow/macplatform/utils/MacPlatform.cpp
+        platform/ui/appmainwindow/macplatform/utils/MacUtils.h
+        platform/ui/appmainwindow/macplatform/utils/MacUtils.cpp
     )
 
 elseif(UNIX)

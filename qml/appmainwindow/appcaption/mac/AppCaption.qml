@@ -34,7 +34,24 @@ BaseCaption {
         RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            spacing: 8
+
+            Label {
+                text: "Your space for custom design"
+
+                Layout.fillWidth: true
+
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignVCenter
+
+                font.pixelSize: 18
+                font.bold: true
+
+                background: Rectangle {
+                    anchors.fill: parent
+
+                    color: "purple"
+                }
+            }
         }
     }
 }
