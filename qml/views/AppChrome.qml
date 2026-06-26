@@ -5,13 +5,7 @@ AppMainWindow {
 
     visible: false
 
-    // Temporary: custom caption is currently implemented only on Windows.
-    // Other platforms continue using their native window decorations.
-    Loader {
-        id: captionLoader
-        active: Qt.platform.os === "windows"
-        sourceComponent: AppCaption {}
-    }
+    AppCaption {}
 
     Component.onCompleted: {
         // Performs platform-specific window initialization.

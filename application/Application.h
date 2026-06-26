@@ -3,7 +3,13 @@
 
 #include <QObject>
 
-#include "appmainwindow/AppMainWindow.h"
+#if defined(_WIN32)
+#include "windowsplatform/WindowsPlatform.h"
+#elif defined(__APPLE__)
+#include "macplatform/MacPlatform.h"
+#elif defined(__linux__)
+// Linux
+#endif
 
 namespace Application {
 
@@ -14,12 +20,18 @@ namespace Application {
 // On other platforms, default behavior is used.
 inline void registerUiTypes()
 {
-    qmlRegisterType<AppMainWindow>(
+#if defined(_WIN32)
+    qmlRegisterType<WindowsPlatform>(
         QML_MODULE,
         1, 0,
         "AppMainWindow"
         );
 }
+#elif defined(__APPLE__)
+#include "mac/MacPlatform"
+#elif defined(__linux__)
+// Linux
+#endif
 
 }
 

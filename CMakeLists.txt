@@ -17,24 +17,30 @@ set(CMAKE_AUTORCC ON)
 
 qt_add_executable(${PROJECT_NAME}
     main.cpp
-    qml/appmainwindow/controls/buttons/CaptionButton.qml
-    qml/views/AppChrome.qml
 )
 
 if(WIN32)
     list(APPEND PLATFORM_SOURCES
-        platform/ui/appmainwindow/windows/WindowsPlatform.cpp
-        platform/ui/appmainwindow/windows/utils/utils.h
+        platform/ui/appmainwindow/windowsplatform/WindowsPlatform.h
+        platform/ui/appmainwindow/windowsplatform/WindowsPlatform.cpp
+
+        platform/ui/appmainwindow/windowsplatform/utils/WindowsUtils.h
+        platform/ui/appmainwindow/windowsplatform/utils/WindowsUtils.cpp
     )
 
 elseif(APPLE)
     list(APPEND PLATFORM_SOURCES
-        platform/ui/appmainwindow/mac/MacPlatform.mm
+        platform/ui/appmainwindow/macplatform/MacPlatform.h
+        platform/ui/appmainwindow/macplatform/MacPlatform.mm
+
+        platform/ui/appmainwindow/macplatform/utils/MacPlatform.h
+        platform/ui/appmainwindow/macplatform/utils/MacPlatform.cpp
     )
 
 elseif(UNIX)
     list(APPEND PLATFORM_SOURCES
-        platform/ui/appmainwindow/linux/LinuxPlatform.cpp
+        platform/ui/appmainwindow/linuxplatform/LinuxPlatform.h
+        platform/ui/appmainwindow/linuxplatform/LinuxPlatform.cpp
     )
 endif()
 
@@ -46,9 +52,14 @@ qt_add_qml_module(${QML_MODULE}
     URI ${QML_MODULE}
     QML_FILES
         Main.qml
+
         qml/views/AppChrome.qml
-        qml/appmainwindow/appcaption/AppCaption.qml
+
+        qml/appmainwindow/appcaption/windows/AppCaption.qml
         qml/appmainwindow/controls/buttons/CaptionButton.qml
+        qml/appmainwindow/controls/buttons/CaptionButton.qml
+
+        qml/views/AppChrome.qml
 
     SOURCES
         application/Application.h
@@ -65,6 +76,7 @@ qt_add_qml_module(${QML_MODULE}
 target_include_directories(${QML_MODULE} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/platform
     ${CMAKE_CURRENT_SOURCE_DIR}/platform/ui
+    ${CMAKE_CURRENT_SOURCE_DIR}/platform/ui/appmainwindow
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

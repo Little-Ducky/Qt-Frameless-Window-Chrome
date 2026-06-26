@@ -1,19 +1,11 @@
-#ifndef UTILS_H
-#define UTILS_H
+#include "WindowsUtils.h"
 
-#include <windows.h>
-#include <Windowsx.h>
-#include <dwmapi.h>
-#pragma comment(lib, "dwmapi.lib")
-
-#include <QtCore>
-
-#include "platform/ui/appmainwindow/AppMainWindow.h"
+WindowsUtils::WindowsUtils() {}
 
 // Shows and handles the Windows system menu manually.
 // This is required for frameless/custom windows where the default title bar is removed.
 // It restores standard system behavior (minimize, maximize, restore, move, size)
-void showSysMenu(POINT pt, HWND hwnd)
+void WindowsUtils::showSysMenu(POINT pt, HWND hwnd)
 {
     HMENU menu = GetSystemMenu(hwnd, FALSE);
 
@@ -79,7 +71,7 @@ void showSysMenu(POINT pt, HWND hwnd)
 }
 // Calculates which resize border (if any) the mouse is currently hovering over.
 // Used to emulate native window resizing behavior in a frameless window.
-qintptr getResizeHitTest(RECT rect, LONG x, LONG y)
+qintptr WindowsUtils::getResizeHitTest(RECT rect, LONG x, LONG y)
 {
     const bool left =
         x >= rect.left &&
@@ -123,5 +115,3 @@ qintptr getResizeHitTest(RECT rect, LONG x, LONG y)
 
     return 0;
 }
-
-#endif // UTILS_H

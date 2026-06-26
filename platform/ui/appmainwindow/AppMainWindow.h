@@ -14,28 +14,27 @@ class AppMainWindow : public QQuickWindow
     Q_OBJECT
 
     Q_PROPERTY(int RESIZE_BORDER MEMBER RESIZE_BORDER CONSTANT)
+    Q_PROPERTY(AppCaption* caption MEMBER m_appCaption CONSTANT)
     Q_PROPERTY(AppWindowController* controller MEMBER m_appWindowController CONSTANT)
 
-    Q_PROPERTY(AppCaption* caption READ caption CONSTANT)
-
 public:
-    explicit AppMainWindow(QWindow *parent = nullptr);
-
-    inline static constexpr int RESIZE_BORDER = 4;
-
-    AppCaption* caption() const
+    explicit AppMainWindow(QWindow *parent = nullptr) :
+        QQuickWindow(parent),
+        m_appCaption(new AppCaption(this)),
+        m_appWindowController(new AppWindowController(this))
     {
-        return m_appCaption;
     }
 
-    Q_INVOKABLE void setup();
+    virtual void setup() = 0;
+
+public:
+    static inline constexpr int RESIZE_BORDER = 4;
 
 protected:
     bool nativeEvent(const QByteArray &eventType,
                      void *message,
-                     qintptr *result) override;
-
-private:
+                     qintptr *result) override = 0;
+protected:
     AppCaption* m_appCaption = nullptr;
     AppWindowController* m_appWindowController = nullptr;
 };

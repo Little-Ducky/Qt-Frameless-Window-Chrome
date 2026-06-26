@@ -1,20 +1,17 @@
-#include "../AppMainWindow.h"
+#include "WindowsPlatform.h"
 
 #include <windows.h>
 #include <Windowsx.h>
 #include <dwmapi.h>
 #pragma comment(lib, "dwmapi.lib")
 
-#include "utils/utils.h"
+#include "utils/WindowsUtils.h"
 
-AppMainWindow::AppMainWindow(QWindow *parent)
-    : QQuickWindow(parent),
-    m_appCaption(new AppCaption(this)),
-    m_appWindowController(new AppWindowController(this))
-{
-}
+WindowsPlatform::WindowsPlatform(QWindow *parent)
+    : AppMainWindow(parent)
+{}
 
-void AppMainWindow::setup()
+void WindowsPlatform::setup()
 {
     DWM_WINDOW_CORNER_PREFERENCE pref = DWMWCP_ROUND;
 
@@ -46,7 +43,7 @@ void AppMainWindow::setup()
 // This function handles native Windows events to emulate custom title bar behavior
 // and override default window behavior (minimize, restore, etc.) for a custom UI.
 // It is used to simulate and control standard window actions manually when using
-bool AppMainWindow::nativeEvent(const QByteArray& eventType,
+bool WindowsPlatform::nativeEvent(const QByteArray& eventType,
                             void *message,
                             qintptr *result)
 {
@@ -115,7 +112,7 @@ bool AppMainWindow::nativeEvent(const QByteArray& eventType,
 
             ClientToScreen(msg->hwnd, &pt);
 
-            showSysMenu(pt, msg->hwnd);
+            WindowsUtils::showSysMenu(pt, msg->hwnd);
 
             return true;
         }
@@ -132,7 +129,7 @@ bool AppMainWindow::nativeEvent(const QByteArray& eventType,
             POINT pt;
             GetCursorPos(&pt);
 
-            showSysMenu(pt, msg->hwnd);
+            WindowsUtils::showSysMenu(pt, msg->hwnd);
 
             return true;
         }
@@ -150,7 +147,7 @@ bool AppMainWindow::nativeEvent(const QByteArray& eventType,
         const LONG x = GET_X_LPARAM(msg->lParam);
         const LONG y = GET_Y_LPARAM(msg->lParam);
 
-        qintptr resizeSide = getResizeHitTest(rect, x, y);
+        qintptr resizeSide = WindowsUtils::getResizeHitTest(rect, x, y);
 
         if (resizeSide)
         {
