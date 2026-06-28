@@ -23,6 +23,10 @@ Example of how the custom window behaves on Windows 11, including native-like wi
 
 <img width="1480" height="1086" alt="obrazek" src="https://github.com/user-attachments/assets/2cc882f5-c06f-4384-8066-0d1c520d1400" />
 
+## Screen Ubuntu
+
+<img width="1256" height="781" alt="зображення" src="https://github.com/user-attachments/assets/080c5380-2226-46c5-8be0-a4f0b7b16d05" />
+
 ## Features Windows
 
 - Frameless window support ✔️
