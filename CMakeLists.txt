@@ -93,7 +93,6 @@ qt_add_qml_module(${PROJECT_NAME}
         platform/appmainwindow/appwindowcontroller/AppWindowController.cpp
 
         ${PLATFORM_SOURCES}
-        platform/appmainwindow/appcaptioncontroller/AppCaptionController.h
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
