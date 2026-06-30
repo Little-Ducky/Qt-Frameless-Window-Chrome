@@ -3,7 +3,7 @@
 #include <AppKit/AppKit.h>
 
 MacPlatform::MacPlatform(QWindow *parent)
-    : Platform(parent)
+    : BaseWindow(parent)
 {
 }
 

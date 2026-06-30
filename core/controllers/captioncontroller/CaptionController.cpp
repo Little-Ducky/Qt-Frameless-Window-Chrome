@@ -1,4 +1,4 @@
-#include "captionController.h"
+#include "CaptionController.h"
 
 CaptionController::CaptionController(QObject *parent)
     : QObject{parent}

@@ -3,8 +3,8 @@
 
 #include <QQuickWindow>
 
-#include "captioncontroller/captionController.h"
-#include "windowcontroller/windowController.h"
+#include "captioncontroller/CaptionController.h"
+#include "windowcontroller/WindowController.h"
 
 class BaseWindow : public QQuickWindow
 {

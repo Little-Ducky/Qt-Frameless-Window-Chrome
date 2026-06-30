@@ -1,7 +1,7 @@
 #include "LinuxPlatform.h"
 
 LinuxPlatform::LinuxPlatform(QWindow *parent)
-    : Platform(parent)
+    : BaseWindow(parent)
 {
 
 }
