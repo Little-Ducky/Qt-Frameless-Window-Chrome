@@ -19,6 +19,10 @@ Example of how the custom window behaves on Windows 11, including native-like wi
 
 <img width="800" height="449" alt="ezgif-17418d93a23a6e5e" src="https://github.com/user-attachments/assets/06abeae9-cc5e-4ab1-a10f-f7ca68c3c153" />
 
+### Screen
+
+<img width="952" height="708" alt="Знімок екрана 2026-07-01 081142" src="https://github.com/user-attachments/assets/50190c34-5e42-48df-8de8-112fa0b2d86a" />
+
 ## Screen MacOs
 
 <img width="1480" height="1086" alt="obrazek" src="https://github.com/user-attachments/assets/2cc882f5-c06f-4384-8066-0d1c520d1400" />
