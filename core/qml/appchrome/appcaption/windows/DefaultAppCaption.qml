@@ -8,7 +8,7 @@ BaseCaption {
         spacing: 8
 
         Label {
-            text: root.title
+            text: window.title
 
             font.pixelSize: 18
             font.bold: true
@@ -29,26 +29,26 @@ BaseCaption {
         }
 
         DefaultCaptionButton {
-            text: root.visibility === Window.Maximized ? "⧉" : "⛶"
+            text: window.visibility === Window.Maximized ? "⧉" : "⛶"
 
             Layout.alignment: Qt.AlignVCenter
             Layout.fillHeight: true
 
-            onClicked: root.windowController.toggleMaximized()
+            onClicked: window.windowController.toggleMaximized()
         }
 
         DefaultCaptionButton {
             text: "—"
             Layout.alignment: Qt.AlignVCenter
             Layout.fillHeight: true
-            onClicked: root.windowController.showMinimized()
+            onClicked: window.windowController.showMinimized()
         }
 
         DefaultCaptionButton {
             text: "✕"
             Layout.alignment: Qt.AlignVCenter
             Layout.fillHeight: true
-            onClicked: root.windowController.close()
+            onClicked: window.windowController.close()
         }
     }
 }

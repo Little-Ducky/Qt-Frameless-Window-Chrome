@@ -16,7 +16,7 @@ BaseCaption {
             }
 
             Label {
-                text: root.title
+                text: window.title
 
                 Layout.fillWidth: true
 

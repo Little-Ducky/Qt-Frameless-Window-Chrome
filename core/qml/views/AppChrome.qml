@@ -1,9 +1,11 @@
 import QtQuick 2.15
+import QtQuick.Layouts
 
 AppMainWindow {
-    id: root
+    id: window
 
     property Component caption: defaultCaption
+    default property alias content: container.data
 
     visible: false
 
@@ -30,15 +32,29 @@ AppMainWindow {
         }
     }
 
-    Loader {
-        id: captionLoader
-        sourceComponent: root.caption
+    ColumnLayout {
+        anchors.fill: parent;
+
+        spacing: 0
+
+        Loader {
+            id: captionLoader
+            sourceComponent: window.caption
+        }
+
+        Item {
+            id: container
+
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+        }
     }
+
 
     Component.onCompleted: {
         // Performs platform-specific window initialization.
-        root.setup()
+        window.setup()
 
-        root.visible = true
+        window.visible = true
     }
 }

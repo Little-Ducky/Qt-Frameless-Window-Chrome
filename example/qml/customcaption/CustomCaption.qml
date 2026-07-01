@@ -111,13 +111,4 @@ BaseCaption {
             onClicked: window.windowController.close()
         }
     }
-
-    Rectangle {
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        height: 1
-        color: "#5a1a1f"
-        opacity: 0.8
-    }
 }
